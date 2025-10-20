@@ -1,0 +1,46 @@
+.guide-section-container {
+    padding: 70px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+
+    .guide-section-articles {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .single-article {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px;
+            flex: 1 1 300px;
+            max-width: 450px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+            h3 {
+                font-size: 25px;
+            }
+
+            a {
+                text-decoration: none;
+                color: #DE4132;
+
+                &::after {
+                    content: "\2B95";
+                    font-size: 10px;
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+}
+
+
+

@@ -1,0 +1,18 @@
+.push-to-next-level-contianer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-image: url("/Projects/Project_1/assets/images/banner.png");
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 40vh;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 70px;
+    
+    h1, p {
+        color: white;
+    }
+}
