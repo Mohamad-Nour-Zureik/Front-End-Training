@@ -1,0 +1,190 @@
+.bar {
+  display: none;
+}
+
+#check {
+  display: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px 10px;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: var(--header-background-color);
+}
+
+nav img {
+  width: 5vw;
+  height: 3vw;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+}
+
+nav ul li {
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.1vw;
+  color: var(--text-primary-color);
+  transition: color 0.3s ease;
+}
+
+nav ul li:hover {
+  color: var(--primary-color);
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav .login-button {
+  padding: 10px 3.5vw;
+  margin-bottom: 5px;
+  font-size: 1.2vw;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: var(--text-secondary-color);
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+nav .login-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 12px rgba(var(--primary-color-rgb), 0.3);
+}
+
+
+@media (max-width: 481px) and (min-width: 320px) {
+  nav {
+    padding: 25px 25px 5px;
+    position: fixed;
+  }
+
+  nav img {
+    width: 50px;
+    height: 50px;
+    padding-bottom: 20px;
+  }
+
+  /* ^ Show hamburger icon */
+
+  nav .bar {
+    display: block;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 40px;
+    height: 31px;
+  }
+
+  nav .bar span {
+    position: absolute;
+    width: 40px;
+    height: 5px;
+    background: var(--primary-color);
+    border-radius: 100px;
+    transition: 0.3s ease;
+    left: 0;
+  }
+
+  nav .bar .top {
+    top: 0;
+  }
+  nav .bar .middle {
+    top: 13px;
+  }
+  nav .bar .bottom {
+    bottom: 0;
+  }
+
+  /* ^ Hide menu and login button by default */
+
+  nav ul,
+  nav .login-button {
+    display: none;
+  }
+
+  /* ^ When checkbox is checked, show them vertically */
+  #check:checked ~ ul {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    padding-top: 15px;
+    top: var(--mobile-nav-bar-height);
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--header-background-color);
+    z-index: 6;
+    align-items: center;
+    gap: 5vh;
+    list-style: none;
+  }
+
+  #check:checked ~ ul li {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 10px;
+    width: 100%;
+    margin: 0;
+
+    a {
+      font-size: 25px;
+    }
+  }
+
+  #check:checked ~ .login-button {
+    display: inline;
+    position: fixed;
+    top: 75vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    z-index: 6;
+    border: 2px solid var(--primary-color);
+    font-size: 22px;
+    text-align: center;
+  }
+
+  /* ^ Ensure hamburger icon is on top */
+  #check:checked {
+    z-index: 10;
+    * {
+      overflow: hidden;
+      height: 100%;
+    }
+  }
+
+  /* ^ Animate hamburger to X */
+
+  #check:checked + .bar .top {
+    transform: rotate(45deg);
+    transform-origin: top left;
+    width: 48px;
+    left: 3px;
+  }
+
+  #check:checked + .bar .bottom {
+    transform: rotate(-45deg);
+    transform-origin: top left;
+    width: 48px;
+    bottom: -8px;
+    box-shadow: 0 0 10px #495057;
+  }
+
+  #check:checked + .bar .middle {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+}
